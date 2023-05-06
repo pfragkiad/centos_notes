@@ -26,6 +26,8 @@ yum install docker-ce
 sudo systemctl start docker
 ```
 ## Change default Docker storage location
+Found guidelines [here](https://www.baeldung.com/linux/docker-fix-no-space-error).
+
 1. Check the current path (in case of restricted space)
 ```console
 $ sudo docker info -f '{{ .DockerRootDir }}'
