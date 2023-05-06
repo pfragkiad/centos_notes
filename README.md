@@ -25,5 +25,12 @@ yum install docker-ce
 ```bash
 systemctl start docker
 ```
+### Install CARLA
 
+To run CARLA via docker use the guide [here](https://carla.readthedocs.io/en/latest/build_docker/).
+
+Pull CARLA image:
+```bash
+sudo docker pull carlasim/carla:latest
+```
 
