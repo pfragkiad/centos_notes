@@ -41,7 +41,7 @@ mkdir -p /disk2/pavfrang/docker
    "data-root": "/disk2/pavfrang/docker"
 }
 ```
-4. Restart the docker service and:
+4. Restart the docker service and check if the current location is the desired one:
 ```console
 $ sudo systemctl restart docker
 $ sudo docker info -f '{{ .DockerRootDir }}'
