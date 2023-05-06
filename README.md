@@ -21,9 +21,31 @@ sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/dock
 yum install docker-ce
 ```
 
-4. Run docker:
+4. Start docker:
 ```bash
-systemctl start docker
+sudo systemctl start docker
+```
+## Change default Docker storage location
+1. Check the current path (in case of restricted space)
+```console
+$ sudo docker info -f '{{ .DockerRootDir }}'
+/var/lib/docker
+```
+2. Create a new target path (example):
+```bash
+mkdir -p /disk2/pavfrang/docker
+```
+3. Configure docker daemon. Edit the file (e.g. via nano): `/etc/docker/daemon.json` by adding the following content:
+```json
+{ 
+   "data-root": "/disk2/pavfrang/docker"
+}
+```
+4. Restart the docker service and:
+```console
+$ sudo systemctl restart docker
+$ sudo docker info -f '{{ .DockerRootDir }}'
+/disk2/pavfrang/docker
 ```
 ### Install CARLA
 
